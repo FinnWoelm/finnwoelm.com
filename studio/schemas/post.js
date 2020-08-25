@@ -37,7 +37,8 @@ export default {
     {
       name: 'teaser',
       title: 'Teaser',
-      type: 'teaserContent',
+      type: 'text',
+      rows: 5,
       validation: Rule => Rule.required().max(140)
     },
     {
