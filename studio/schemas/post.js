@@ -31,8 +31,12 @@ export default {
     {
       name: 'publishedAt',
       title: 'Published at',
-      type: 'datetime',
+      type: 'date',
       validation: Rule => Rule.required(),
+      options: {
+        dateFormat: 'YYYY-MM-DD',
+        calendarTodayLabel: 'Today'
+      }
     },
     {
       name: 'teaser',
