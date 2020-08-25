@@ -43,5 +43,15 @@ export default {
       subtitle: 'publishedAt',
       media: 'mainImage'
     },
-  }
+  },
+
+  orderings: [
+    {
+      title: 'Publication date',
+      name: 'publicationDateDesc',
+      by: [
+        {field: 'publishedAt', direction: 'desc'}
+      ]
+    }
+  ]
 }
