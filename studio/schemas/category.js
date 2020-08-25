@@ -1,3 +1,5 @@
+import React from 'react'
+
 export default {
   name: 'category',
   title: 'Category',
@@ -11,7 +13,20 @@ export default {
     {
       name: 'color',
       title: 'Color',
-      type: 'string'
+      type: 'color'
     }
-  ]
+  ],
+
+  preview: {
+    select: {
+      title: 'label',
+      color: 'color'
+    },
+    prepare({ color, title }) {
+      return {
+        title: title,
+        media: <div style={{ height: '1.5em', width: '1.5em', borderRadius: '50%', background: color.hex }}></div>
+      }
+    }
+  }
 }
