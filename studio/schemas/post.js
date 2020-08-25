@@ -26,12 +26,6 @@ export default {
       }
     },
     {
-      name: 'category',
-      title: 'Category',
-      type: 'reference',
-      to: [{type: 'category'}]
-    },
-    {
       name: 'publishedAt',
       title: 'Published at',
       type: 'datetime'
