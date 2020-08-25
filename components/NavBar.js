@@ -20,7 +20,6 @@ const NavBar = () => (
         <Box marginX={2} />
         <Button color="inherit">News</Button>
         <Button color="inherit">Projects</Button>
-        <Button color="inherit">About</Button>
         <Box marginX={2} />
         <SocialButton
           href="https://twitter.com/FinnWoelm"
