@@ -11,7 +11,7 @@ const SocialButton = styled(IconButton).attrs({
 const NavBar = () => (
   <AppBar position='static' color='transparent' elevation={0} style={{ borderBottom: '1px solid #eee' }}>
     <Container>
-      <Toolbar>
+      <Toolbar style={{ marginLeft: -32, marginRight: -32 }}>
         <Link href="/" passHref>
           <Button>
             <img src='/logo.png' style={{ height: 30 }} />
