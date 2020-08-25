@@ -6,12 +6,14 @@ export default {
     {
       name: 'title',
       title: 'Title',
-      type: 'string'
+      type: 'string',
+      validation: Rule => Rule.required()
     },
     {
       name: 'slug',
       title: 'Slug',
       type: 'slug',
+      validation: Rule => Rule.required(),
       options: {
         source: 'title',
         maxLength: 96
@@ -21,6 +23,7 @@ export default {
       name: 'mainImage',
       title: 'Main image',
       type: 'image',
+      validation: Rule => Rule.required(),
       options: {
         hotspot: true
       }
@@ -28,12 +31,20 @@ export default {
     {
       name: 'publishedAt',
       title: 'Published at',
-      type: 'datetime'
+      type: 'datetime',
+      validation: Rule => Rule.required(),
+    },
+    {
+      name: 'teaser',
+      title: 'Teaser',
+      type: 'teaserContent',
+      validation: Rule => Rule.required().max(140)
     },
     {
       name: 'body',
       title: 'Body',
-      type: 'blockContent'
+      type: 'blockContent',
+      validation: Rule => Rule.required()
     }
   ],
 
