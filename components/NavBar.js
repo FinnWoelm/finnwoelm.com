@@ -1,8 +1,15 @@
 import Link from 'next/link'
-import { AppBar, Button, Container, Toolbar } from '@material-ui/core'
+import { AppBar, Box, Button, Container, IconButton, Toolbar } from '@material-ui/core'
+import { Github, Linkedin, Twitter } from 'mdi-material-ui'
+import styled from 'styled-components'
+import ExternalLink from 'components/ExternalLink'
+
+const SocialButton = styled(IconButton).attrs({
+  component: ExternalLink
+})``
 
 const NavBar = () => (
-  <AppBar position='static' color='transparent' elevation={0}>
+  <AppBar position='static' color='transparent' elevation={0} style={{ borderBottom: '1px solid #eee' }}>
     <Container>
       <Toolbar>
         <Link href="/" passHref>
@@ -10,9 +17,26 @@ const NavBar = () => (
             <img src='/logo.png' style={{ height: 30 }} />
           </Button>
         </Link>
+        <Box marginX={2} />
         <Button color="inherit">News</Button>
         <Button color="inherit">Projects</Button>
         <Button color="inherit">About</Button>
+        <Box marginX={2} />
+        <SocialButton
+          href="https://twitter.com/FinnWoelm"
+          style={{ color: '#1da1f2' }}>
+          <Twitter />
+        </SocialButton>
+        <SocialButton
+          href="https://www.linkedin.com/in/FinnWoelm/"
+          style={{ color: '#2867b2' }}>
+          <Linkedin />
+        </SocialButton>
+        <SocialButton
+          href="https://github.com/FinnWoelm"
+          style={{ color: '#000' }}>
+          <Github />
+        </SocialButton>
       </Toolbar>
     </Container>
   </AppBar>
