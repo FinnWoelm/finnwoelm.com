@@ -7066,6 +7066,11 @@ same-origin@^0.1.1:
   version "0.1.1"
   resolved "https://registry.npmjs.org/same-origin/-/same-origin-0.1.1.tgz#c2287d3192577df517acbbd6d1451a9c3c3914f5"
 
+sanity@^1.150.1:
+  version "1.150.1"
+  resolved "https://registry.yarnpkg.com/sanity/-/sanity-1.150.1.tgz#106d33ad9b6f9d72f5e2c3deaa71055701e1e3d6"
+  integrity sha512-5D4gz2MPiOVY55kokpbWA+KRTORSlLc/WCAHyB0LXgEt44g0rNpgsrP9KmkPJQ1tHbEwREMudrO3LxPGsXEN1Q==
+
 sax@~1.2.4:
   version "1.2.4"
   resolved "https://registry.npmjs.org/sax/-/sax-1.2.4.tgz#2816234e2378bddc4e5354fab5caa895df7100d9"
