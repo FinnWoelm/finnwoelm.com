@@ -1,7 +1,10 @@
 import BlockContent from '@sanity/block-content-to-react'
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
+import okaidia from 'react-syntax-highlighter/dist/cjs/styles/prism/okaidia'
 import { Box, Container, Typography } from '@material-ui/core'
 import client from 'helpers/client'
 import Paragraph from 'components/Paragraph'
+import InlineCode from 'components/InlineCode'
 
 const BlockRenderer = props => {
   const {style = 'normal'} = props.node;
@@ -29,10 +32,15 @@ const serializers = {
   types: {
     block: BlockRenderer,
     code: props => (
-      <pre data-language={props.node.language}>
-        <code>{props.node.code}</code>
-      </pre>
+      <SyntaxHighlighter
+        language={props.node.language}
+        style={okaidia}>
+        {props.node.code}
+      </SyntaxHighlighter>
     )
+  },
+  marks: {
+    code: InlineCode
   }
 }
 
