@@ -12,7 +12,7 @@ const Post = ({ post }) => (
         <Typography variant='h1'>
           {post.title}
         </Typography>
-        <Typography variant='h2' style={{ color: 'gray'}}>
+        <Typography variant='subtitle1' style={{ color: 'gray'}}>
           {dateFormat(new Date(post.publishedAt), 'longDate')}
         </Typography>
         <Container maxWidth='md' disableGutters style={{ margin: 0 }}>

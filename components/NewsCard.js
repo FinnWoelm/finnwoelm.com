@@ -29,7 +29,7 @@ const NewsCard = ({ news }) => (
           style={{ height: 200 }}/>
         <Divider />
         <CardContent>
-          <Typography variant='h3' gutterBottom>
+          <Typography variant='subtitle1' gutterBottom>
             {news.title}
           </Typography>
           <Typography variant='body2' style={{ color: 'gray' }} gutterBottom>

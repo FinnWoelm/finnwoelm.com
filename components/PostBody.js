@@ -9,9 +9,20 @@ import InlineCode from 'components/InlineCode'
 const BlockRenderer = props => {
   const {style = 'normal'} = props.node;
 
-  if (/^h\d/.test(style)) {
-    const level = style.replace(/[^\d]/g, '')
-    return <Typography variant={`h${level}`} gutterBottom>{props.children}</Typography>
+  if (style === 'heading') {
+    return (
+      <Typography variant='h2' gutterBottom style={{ marginTop: 32 }}>
+        {props.children}
+      </Typography>
+    )
+  }
+
+  if (style === 'subheading') {
+    return (
+      <Typography variant='h3' gutterBottom style={{ marginTop: 16 }}>
+        {props.children}
+      </Typography>
+    )
   }
 
   if(style === 'normal') {

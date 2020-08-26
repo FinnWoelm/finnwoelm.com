@@ -1,3 +1,13 @@
+import React from 'react'
+
+const h1Style = props => (
+  <h1 style={{ fontSize: '2.2em', margin: 0}}>{props.children}</h1>
+)
+
+const h2Style = props => (
+  <h2 style={{ fontSize: '1.5em', fontWeight: 300, textDecoration: 'underline', margin: 0}}>{props.children}</h2>
+)
+
 /**
  * This is the schema definition for the rich text fields used for
  * for this blog studio. When you import it in schemas.js it can be
@@ -21,12 +31,10 @@ export default {
       // you want and decide how you want to deal with it where you want to
       // use your content.
       styles: [
-        {title: 'Normal', value: 'normal'},
-        {title: 'H1', value: 'h1'},
-        {title: 'H2', value: 'h2'},
-        {title: 'H3', value: 'h3'},
-        {title: 'H4', value: 'h4'},
-        {title: 'Quote', value: 'blockquote'}
+        {title: 'Normal',     value: 'normal'},
+        {title: 'Heading',    value: 'heading', blockEditor: { render: h1Style }},
+        {title: 'Subheading', value: 'subheading', blockEditor: { render: h2Style }},
+        {title: 'Quote',      value: 'blockquote'}
       ],
       lists: [{title: 'Bullet', value: 'bullet'}, {title: 'Number', value: 'number'}],
       // Marks let you mark up inline text in the block editor.
