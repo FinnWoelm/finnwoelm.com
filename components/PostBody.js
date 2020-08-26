@@ -39,7 +39,7 @@ const BlockRenderer = props => {
 
 
 const serializers = {
-  container: props => <Box marginY={5} {...props} />,
+  container: props => <Box {...props} />,
   types: {
     block: BlockRenderer,
     code: props => (
