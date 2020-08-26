@@ -3,6 +3,8 @@ import { Box, Button, Container, Grid, Typography } from '@material-ui/core'
 import { ChevronRight } from 'mdi-material-ui'
 import styled from 'styled-components'
 import theme from 'helpers/theme'
+import client from 'helpers/client'
+import urlFor from 'helpers/urlFor'
 import NavBar from 'components/NavBar'
 import Footer from 'components/Footer'
 import ExternalLink from 'components/ExternalLink'
@@ -16,7 +18,7 @@ const FlippingGrid = styled(Grid)`
   min-height: 60vh;
 `
 
-const Home = () => (
+const Home = ({ posts }) => (
   <>
     <NavBar />
     <Container>
@@ -65,15 +67,12 @@ const Home = () => (
           </Typography>
         </Box>
         <Grid container spacing={2}>
-          <Grid item xs={12} md={4}>
-            <NewsCard raised />
-          </Grid>
-          <Grid item xs={12} md={4}>
-            <NewsCard />
-          </Grid>
-          <Grid item xs={12} md={4}>
-            <NewsCard summary="AAAA AAAA AAAA AAAA AAAA AAAA AAAA AAAA AAAA AAAA AAAA AAAA AAAA AAAA AAAA AAAA AAAA AAAA AAAA AAAA AAAA "/>
-          </Grid>
+          {posts.map(post => (
+            <Grid key={post.slug} item xs={12} md={4}>
+              <NewsCard
+                news={post} post={post} />
+            </Grid>
+          ))}
         </Grid>
         <Box marginTop={2}>
           <Button color='primary' variant='outlined'>
@@ -86,5 +85,22 @@ const Home = () => (
     <Footer />
   </>
 )
+
+export async function getStaticProps() {
+  const query = '*[_type == "post"] | order(publishedAt desc) {title, slug, publishedAt, mainImage, teaser} [0...3]'
+  const posts = await client.fetch(query)
+
+  return {
+    props: {
+      posts: posts.map(post => ({
+        title: post.title,
+        slug: post.slug.current,
+        publishedAt: post.publishedAt,
+        featuredImage: urlFor(post.mainImage).height(200).url(),
+        teaser: post.teaser
+      }))
+    }
+  }
+}
 
 export default Home

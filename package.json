@@ -10,6 +10,9 @@
   },
   "dependencies": {
     "@material-ui/core": "^4.11.0",
+    "@sanity/client": "^1.150.1",
+    "@sanity/image-url": "^0.140.19",
+    "dateformat": "^3.0.3",
     "mdi-material-ui": "^6.18.0",
     "next": "9.5.2",
     "next-on-netlify": "^2.3.2",

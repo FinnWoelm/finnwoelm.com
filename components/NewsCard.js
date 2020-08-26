@@ -1,5 +1,6 @@
-import { Card, CardActionArea, CardContent, CardMedia, Typography } from '@material-ui/core'
+import { Card, CardActionArea, CardContent, CardMedia, Divider, Typography } from '@material-ui/core'
 import styled from 'styled-components'
+import dateFormat from 'dateformat'
 
 const HoverCard = styled(Card)`
   &&:hover {
@@ -17,19 +18,23 @@ const HoverCard = styled(Card)`
   }
 `
 
-const NewsCard = ({ summary, raised = false }) => (
+const NewsCard = ({ news }) => (
   <HoverCard style={{ height: '100%' }}>
     <CardActionArea style={{ height: '100%' }} component='a'>
       <CardMedia
-        image='/finn-woelm.jpg'
+        image={news.featuredImage}
         title='alt text'
         style={{ height: 200 }}/>
+      <Divider />
       <CardContent>
         <Typography variant='h3' gutterBottom>
-          My Cool Post
+          {news.title}
+        </Typography>
+        <Typography variant='body2' style={{ color: 'gray' }} gutterBottom>
+          {dateFormat(new Date(news.publishedAt), 'mediumDate')}
         </Typography>
         <Typography variant='body2'>
-          {summary}
+          {news.teaser}
         </Typography>
       </CardContent>
     </CardActionArea>
