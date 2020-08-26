@@ -5,9 +5,9 @@ import styled from 'styled-components'
 import theme from 'helpers/theme'
 import client from 'helpers/client'
 import urlFor from 'helpers/urlFor'
-import NavBar from 'components/NavBar'
-import Footer from 'components/Footer'
+import Layout from 'components/Layout'
 import ExternalLink from 'components/ExternalLink'
+import Paragraph from 'components/Paragraph'
 import NewsCard from 'components/NewsCard'
 
 const FlippingGrid = styled(Grid)`
@@ -19,8 +19,7 @@ const FlippingGrid = styled(Grid)`
 `
 
 const Home = ({ posts }) => (
-  <>
-    <NavBar />
+  <Layout>
     <Container>
       <FlippingGrid container alignItems="center">
         <Grid item xs={12} md={6} lg={6}>
@@ -30,7 +29,7 @@ const Home = ({ posts }) => (
               {' '}
               <span role="img" aria-label="wave">👋</span>
             </Typography>
-            <Typography variant='body1' gutterBottom>
+            <Paragraph>
               My name is Finn and I'm a data scientist and analyst at the
               {' '}
               <ExternalLink href="https://www.unsdsn.org/">
@@ -39,12 +38,12 @@ const Home = ({ posts }) => (
               , where I help to track and monitor the progress of all 193 UN
               Member States towards the achievement of the 17 Sustainable
               Development Goals.
-            </Typography>
-            <Typography variant='body1' gutterBottom>
+            </Paragraph>
+            <Paragraph>
               I am passionate about data, the environment, and impact startups.
               In my free time, I love to code, contribute to open source,
               and promote open principles in the non-profit sector.
-            </Typography>
+            </Paragraph>
           </Box>
         </Grid>
         <Grid item xs={3} md />
@@ -82,8 +81,7 @@ const Home = ({ posts }) => (
         </Box>
       </Container>
     </Box>
-    <Footer />
-  </>
+  </Layout>
 )
 
 export async function getStaticProps() {
