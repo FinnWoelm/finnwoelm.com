@@ -5,6 +5,7 @@ import getYouTubeId from 'get-youtube-id'
 import { Box, Container, Typography } from '@material-ui/core'
 import styled from 'styled-components'
 import client from 'helpers/client'
+import urlFor from 'helpers/urlFor'
 import theme from 'helpers/theme'
 import Paragraph from 'components/Paragraph'
 import InlineCode from 'components/InlineCode'
@@ -59,6 +60,13 @@ const serializers = {
   container: props => <Box {...props} />,
   types: {
     block: BlockRenderer,
+    image: props => (
+      <Box>
+        <img
+          src={urlFor(props.node.asset).maxWidth(960).maxHeight(600).url()}
+          style={{ maxWidth: '100%' }}/>
+      </Box>
+    ),
     code: props => (
       <SyntaxHighlighter
         language={props.node.language}
