@@ -9,22 +9,22 @@ const Posts = ({ posts }) => (
   <Layout>
     <Box marginY={5}>
       <Container>
-        <Box marginBottom={2}>
-          <Title>
-            News and Updates
-          </Title>
-          <Typography variant='body1'>
-            The latest news, thoughts, ideas, and reflections from my life.
-          </Typography>
+        <Title>
+          News and Updates
+        </Title>
+        <Typography variant='body1'>
+          The latest news, thoughts, ideas, and reflections from my life.
+        </Typography>
+        <Box marginY={5}>
+          <Grid container spacing={2}>
+            {posts.map(post => (
+              <Grid key={post.slug} item xs={12} md={4}>
+                <NewsCard
+                  news={post} />
+              </Grid>
+            ))}
+          </Grid>
         </Box>
-        <Grid container spacing={2}>
-          {posts.map(post => (
-            <Grid key={post.slug} item xs={12} md={4}>
-              <NewsCard
-                news={post} />
-            </Grid>
-          ))}
-        </Grid>
       </Container>
     </Box>
   </Layout>
