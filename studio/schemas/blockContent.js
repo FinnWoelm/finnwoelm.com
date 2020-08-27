@@ -72,6 +72,9 @@ export default {
     },
     {
       type: 'code'
+    },
+    {
+      type: 'youtube'
     }
   ]
 }

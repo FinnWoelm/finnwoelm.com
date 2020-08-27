@@ -1,10 +1,27 @@
 import BlockContent from '@sanity/block-content-to-react'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import okaidia from 'react-syntax-highlighter/dist/cjs/styles/prism/okaidia'
+import getYouTubeId from 'get-youtube-id'
+import YouTube from 'react-youtube'
 import { Box, Container, Typography } from '@material-ui/core'
+import styled from 'styled-components'
 import client from 'helpers/client'
+import theme from 'helpers/theme'
 import Paragraph from 'components/Paragraph'
 import InlineCode from 'components/InlineCode'
+
+const ResponsiveYouTube = styled(YouTube)`
+  width: 100%;
+  height: 540px;
+
+  ${theme.breakpoints.only('sm')} {
+    height: 450px;
+  }
+
+  ${theme.breakpoints.only('xs')} {
+    height: 360px;
+  }
+`
 
 const BlockRenderer = props => {
   const {style = 'normal'} = props.node;
@@ -48,7 +65,11 @@ const serializers = {
         style={okaidia}>
         {props.node.code}
       </SyntaxHighlighter>
-    )
+    ),
+    youtube: props => {
+      const id = getYouTubeId(props.node.url)
+      return (<ResponsiveYouTube videoId={id} />)
+    }
   },
   marks: {
     code: InlineCode
