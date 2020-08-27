@@ -18,7 +18,11 @@ const NavBar = () => (
           </Button>
         </Link>
         <Box marginX={2} />
-        <Button color="inherit">News</Button>
+        <Link href="/posts" passHref>
+          <Button color="inherit">
+            News
+          </Button>
+        </Link>
         <Button color="inherit">Projects</Button>
         <Box marginX={2} />
         <SocialButton

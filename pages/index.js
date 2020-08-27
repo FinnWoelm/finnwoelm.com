@@ -1,9 +1,10 @@
 import Head from 'next/head'
+import Link from 'next/link'
 import { Box, Button, Container, Grid, Typography } from '@material-ui/core'
 import { ChevronRight } from 'mdi-material-ui'
 import styled from 'styled-components'
 import theme from 'helpers/theme'
-import client from 'helpers/client'
+import query from 'helpers/query'
 import urlFor from 'helpers/urlFor'
 import Layout from 'components/Layout'
 import ExternalLink from 'components/ExternalLink'
@@ -69,15 +70,17 @@ const Home = ({ posts }) => (
           {posts.map(post => (
             <Grid key={post.slug} item xs={12} md={4}>
               <NewsCard
-                news={post} post={post} />
+                news={post} />
             </Grid>
           ))}
         </Grid>
         <Box marginTop={2}>
-          <Button color='primary' variant='outlined'>
-            View more
-            <ChevronRight />
-          </Button>
+          <Link href="/posts" passHref>
+            <Button color='primary' variant='outlined'>
+              View more
+              <ChevronRight />
+            </Button>
+          </Link>
         </Box>
       </Container>
     </Box>
@@ -85,8 +88,12 @@ const Home = ({ posts }) => (
 )
 
 export async function getStaticProps() {
-  const query = '*[_type == "post"] | order(publishedAt desc) {title, slug, publishedAt, mainImage, teaser} [0...3]'
-  const posts = await client.fetch(query)
+  const posts = await query({
+    filters: '[_type == "post"]',
+    sorts: 'order(publishedAt desc)',
+    projection: '{title, slug, publishedAt, mainImage, teaser}',
+    selector: '[0...3]'
+  })
 
   return {
     props: {
