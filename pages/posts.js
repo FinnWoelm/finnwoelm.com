@@ -2,6 +2,7 @@ import { Box, Container, Grid, Typography } from '@material-ui/core'
 import urlFor from 'helpers/urlFor'
 import query from 'helpers/query'
 import Layout from 'components/Layout'
+import Title from 'components/Title'
 import NewsCard from 'components/NewsCard'
 
 const Posts = ({ posts }) => (
@@ -9,9 +10,9 @@ const Posts = ({ posts }) => (
     <Box marginY={5}>
       <Container>
         <Box marginBottom={2}>
-          <Typography variant='h1'>
+          <Title>
             News and Updates
-          </Typography>
+          </Title>
           <Typography variant='body1'>
             The latest news, thoughts, ideas, and reflections from my life.
           </Typography>

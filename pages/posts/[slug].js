@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import urlFor from 'helpers/urlFor'
 import query from 'helpers/query'
 import Layout from 'components/Layout'
+import Title from 'components/Title'
 import PostBody from 'components/PostBody'
 
 const PostImage = styled.img`
@@ -17,9 +18,9 @@ const Post = ({ post }) => (
       <Container>
         <PostImage src={post.featuredImage} />
         <Box marginY={3}>
-          <Typography variant='h1'>
+          <Title>
             {post.title}
-          </Typography>
+          </Title>
           <Typography variant='subtitle1' style={{ color: 'gray' }}>
             {dateFormat(new Date(post.publishedAt), 'longDate')}
           </Typography>
