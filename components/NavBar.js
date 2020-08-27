@@ -19,10 +19,6 @@ const LeftAlignedToolbar = styled(Toolbar)`
   }
 `
 
-const HiddenFlex = styled(Hidden)`
-  display: flex;
-`
-
 const SocialButton = styled(IconButton).attrs({
   component: ExternalLink
 })``
@@ -58,27 +54,29 @@ const NavBar = () => {
               linkedin={LINKEDIN}
               github={GITHUB} />
           </Hidden>
-          <HiddenFlex implementation='css' smDown>
-            <Box marginX={2} />
-            <Link href="/posts" passHref>
-              <Button color="inherit">
-                News
-              </Button>
-            </Link>
-            <Box marginX={2} />
-            <SocialButton
-              href={TWITTER}>
-              <TwitterIcon />
-            </SocialButton>
-            <SocialButton
-              href={LINKEDIN}>
-              <LinkedInIcon />
-            </SocialButton>
-            <SocialButton
-              href={GITHUB}>
-              <GitHubIcon />
-            </SocialButton>
-          </HiddenFlex>
+          <Hidden implementation='css' smDown>
+            <Box display='flex'>
+              <Box marginX={2} />
+              <Link href="/posts" passHref>
+                <Button color="inherit">
+                  News
+                </Button>
+              </Link>
+              <Box marginX={2} />
+              <SocialButton
+                href={TWITTER}>
+                <TwitterIcon />
+              </SocialButton>
+              <SocialButton
+                href={LINKEDIN}>
+                <LinkedInIcon />
+              </SocialButton>
+              <SocialButton
+                href={GITHUB}>
+                <GitHubIcon />
+              </SocialButton>
+            </Box>
+          </Hidden>
         </LeftAlignedToolbar>
       </Container>
     </AppBar>
