@@ -43,7 +43,7 @@ const NavBar = () => {
           </Hidden>
           <Link href="/" passHref>
             <Button>
-              <img src='/logo.png' style={{ height: 30 }} />
+              <img src='/logo.png' alt="Logo" style={{ height: 30 }} />
             </Button>
           </Link>
           <Hidden implementation='js' mdUp>

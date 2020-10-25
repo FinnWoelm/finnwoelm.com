@@ -17,7 +17,7 @@ const NavBarDrawer = ({ open, onClose, twitter, linkedin, github }) => (
     <List>
       <Link href="/" passHref>
         <ListItem button component='a'>
-          <img src="/logo.png" style={{ maxWidth: '100%', padding: '16px 0' }}/>
+          <img src="/logo.png" alt="Logo" style={{ maxWidth: '100%', padding: '16px 0' }}/>
         </ListItem>
       </Link>
     </List>

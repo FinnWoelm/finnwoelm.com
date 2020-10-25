@@ -64,6 +64,7 @@ const serializers = {
       <Box>
         <img
           src={urlFor(props.node.asset).maxWidth(960).maxHeight(600).url()}
+          alt={props.node.alt}
           style={{ maxWidth: '100%' }}/>
       </Box>
     ),

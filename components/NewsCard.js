@@ -25,7 +25,7 @@ const NewsCard = ({ news }) => (
       <CardActionArea style={{ height: '100%' }} component='a'>
         <CardMedia
           image={news.featuredImage}
-          title='alt text'
+          title={`Featured Image: ${news.title}`}
           style={{ height: 200 }}/>
         <Divider />
         <CardContent>

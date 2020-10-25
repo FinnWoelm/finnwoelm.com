@@ -16,7 +16,7 @@ const Post = ({ post }) => (
   <Layout>
     <Box marginY={5}>
       <Container>
-        <PostImage src={post.featuredImage} />
+        <PostImage alt='Featured Image' src={post.featuredImage} />
         <Box marginY={3}>
           <Title>
             {post.title}
