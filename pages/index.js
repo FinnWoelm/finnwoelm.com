@@ -32,18 +32,19 @@ const Home = ({ posts }) => (
               </span>
             </Typography>
             <Paragraph>
-              My name is Finn and I'm a data scientist and analyst at the{" "}
+              My name is Finn and I'm the coordinator for data science and
+              research at the{" "}
               <ExternalLink href="https://www.unsdsn.org/">
                 United Nations Sustainable Development Solutions Network
               </ExternalLink>
-              , where I help to track and monitor the progress of all 193 UN
-              Member States towards the achievement of the 17 Sustainable
-              Development Goals.
+              , where I co-lead a team for tracking and monitoring the progress
+              of all 193 UN Member States towards the achievement of the 17
+              Sustainable Development Goals.
             </Paragraph>
             <Paragraph>
               I am passionate about data, the environment, and impact startups.
-              In my free time, I love to code, contribute to open source, and
-              promote open principles in the non-profit sector.
+              In my free time, I love to code, contribute to open source
+              projects, and promote open collaboration principles.
             </Paragraph>
           </Box>
         </Grid>
